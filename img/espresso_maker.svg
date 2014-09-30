@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="200" height="200"  xml:space="preserve">
+    <path id="bezier" stroke="rgb(0, 0, 0)" stroke-miterlimit="10" fill="rgb(0, 0, 0)" d="M 177.5,54.5 L 177.5,186.5 42.5,186.5 42.5,165.5 121.5,165.5 121.5,54.5 95.5,54.5 95.5,76.5 61.5,76.5 61.5,71.5 11.5,71.5 C 9.29,71.5 7.5,69.71 7.5,67.5 L 7.5,62.5 C 7.5,60.29 9.29,58.5 11.5,58.5 L 61.5,58.5 61.5,54.5 42.5,54.5 42.5,17.5 177.5,17.5 177.5,54.5 Z M 177.5,54.5" />
+</svg>

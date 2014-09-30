@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Espresso Machine</title>
+    <link rel="stylesheet" href="thumbtack.css">
+</head>
+<body>
+<div id="container">
+	<div id="machine">
+				<div><h1 id="title">Sean's Magic Drink Machine</h1></div>
+	    	<div id="spinner-view">
+	    		<div id="roller1" class="roller roll1">
+		    		<div class="roller-section">
+		    			<span>default</span>
+		    		</div>
+	    		</div>
+		    	<div id="roller2" class="roller roll2">
+					<div class="roller-section">
+		    			<span>default</span>
+		    		</div>
+		    	</div>
+		    	<div id="roller3" class="roller roll3">
+					<div class="roller-section">
+		    			<span>default</span>
+		    		</div>
+		    	</div>
+	    	</div>
+	</div>
+	
+	<div id="lever-joint">
+	</div>
+	<div id="lever">
+		<div id="shaft"></div>
+		<div id="ball">
+			<div id="ball-reflection"></div>
+		</div>
+	</div>
+</div>
+<script id="roller-section-template" type="text/template">
+<img><%= image %></img>
+<span class="caption"><%= value %></span>
+</script>
+<script id="roller-template" type="text/template">
+
+</script>
+<script src="js/libs/jquery-1.11.1.min.js"></script>
+<script src="js/libs/underscore.js"></script>
+<script src="js/libs/backbone.js"></script>
+<script src="js/models/Section.js"></script>
+<script src="js/collections/Sections.js"></script>
+<script src="js/views/SectionView.js"></script>
+<script src="js/models/Roller.js"></script>
+<script src="js/collections/Rollers.js"></script>
+<script src="js/views/RollerView.js"></script>
+<script src="js/views/RollersView.js"></script>
+<script src="js/models/Machine.js"></script>
+<script src="js/thumbtack.js"></script>
+</body>
+</html>
