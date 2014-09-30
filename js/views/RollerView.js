@@ -3,11 +3,15 @@ var app = app || {};
 app.RollerView = Backbone.View.extend({
 	tagName: "div",
 	className: "roller",
-	template: _.template($("#roller-template").html()),
 	render: function(){
-		this.$el.html();
-		console.log(this.sections);
+		this.$el.html(' ');
+		this.collection.each(this.addSection, this);
+		this.addSection(this.collection.models[0]);
 		return this;
+	},
+	addSection: function(section){
+		var sectionView = new app.SectionView({model: section});
+		this.$el.append(sectionView.render().el);
 	},
 	startRoll: function(){
 		this.$el.addClass("roll");
@@ -28,5 +32,5 @@ app.RollerView = Backbone.View.extend({
 			}, 250);
 		}
 		setTimeout(stop, timeout);
-	}
+	},
 })
