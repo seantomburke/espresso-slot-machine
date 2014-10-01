@@ -8,6 +8,7 @@ app.Machine = Backbone.Model.extend({
 	initialize: function(){
 
 		this.on("roller:stopped", this.setStopped);
+
 		//this.collection = new app.Rollers;
 		this.rolling = false;
 		this.rollers = {};
@@ -116,6 +117,7 @@ app.Machine = Backbone.Model.extend({
 			roller.stopRoll(delay + interval * roller.collection.position);
 			console.log(roller.collection.rollValue);
 		});
+		this.rolling = false;
 	},
 	setStopped: function(){
 		console.log("stopped");
