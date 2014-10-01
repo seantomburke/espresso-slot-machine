@@ -3,25 +3,14 @@ var app = app || {};
 app.RollerView = Backbone.View.extend({
 	tagName: "div",
 	className: "roller",
-	initialize:function(){
-		this.rolling = false;
-	},
 	render: function(){
-		this.$el.html(' ');
-		this.collection.each(this.addSection, this);
-		this.addSection(this.collection.models[0]);
+		//console.log("RollerView", this.model.sectionsView.render().el);
+		this.$el.html(this.model.sectionsView.render().el);
 		return this;
 	},
-	addSection: function(section){
-		var sectionView = new app.SectionView({model: section});
-		this.$el.append(sectionView.render().el);
-	},
 	startRoll: function(){
-		if(!this.rolling)
-		{	
-			this.rolling = true;
+			//console.log("starting roll")
 			this.$el.addClass("roll");
-		}
 	},
 	stopRoll: function(timeout){
 		var _this = this;
@@ -31,7 +20,7 @@ app.RollerView = Backbone.View.extend({
 			var index = Math.round(top/210);
 			var new_top = index*210;
 			_this.collection.rollValue = Math.abs(index);
-			console.log(top);
+			//console.log(top);
 			_$el.css("top", top);
 			_$el.removeClass("roll");
 			_$el.animate({

@@ -136,7 +136,7 @@ var RollerView = Backbone.View.extend({
 		}, this);
 		//render the first item at the end of the list, to make the animation look continuous
 		this.renderSection(this.collection.models[0]);
-		console.log("rendering");
+		//console.log("rendering");
 	},
 	renderSection:function(item){
 		var sectionView = new SectionView({

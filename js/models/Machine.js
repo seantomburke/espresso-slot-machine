@@ -2,7 +2,6 @@ var app = app || {}
 
 app.Machine = Backbone.Model.extend({
 	defaults: {
-		rollers: {},
 		rolling: false
 	},
 	initialize: function(){
@@ -69,41 +68,66 @@ app.Machine = Backbone.Model.extend({
 			position: 3
 		});
 
-
-		var makerSections = new app.Roller([
+		var makerSections = new app.Sections([
 				coffeeMaker, teaMaker, espressoMaker
 			]);
-		var filterSections = new app.Roller([
+		//console.log("makerSections", makerSections);
+
+		var filterSections = new app.Sections([
 				coffeeFilter, teaFilter, espressoFilter
 			]);
-		var beansSections = new app.Roller([
+		var beansSections = new app.Sections([
 				coffeeBeans, teaBeans, espressoBeans
 		 	]);
-		makerSections.position = 1;
-		filterSections.position = 2;
-		beansSections.position = 3;
 
-		$("#spinner-view").html(' ');
-		this.rollers["maker"] = new app.RollerView({id:"roller1", collection: makerSections});
-		$("#spinner-view").append(this.rollers["maker"].render().el);
+		var makerRoller = new app.Roller({
+			id: "roller1",
+			sections: makerSections
+		});
+		//console.log("makerRoller", makerRoller);
+		var filterRoller = new app.Roller({
+			id: "roller2",
+			sections: filterSections
+		});
+		var beansRoller = new app.Roller({
+			id: "roller3",
+			sections: beansSections
+		});
 
-		this.rollers["filter"] = new app.RollerView({id:"roller2", collection: filterSections});
-		$("#spinner-view").append(this.rollers["filter"].render().el);
+		this.rollers = new app.Rollers([
+			makerRoller, filterRoller, beansRoller
+			]);
 
-		this.rollers["beans"] = new app.RollerView({id:"roller3", collection: beansSections});
-		$("#spinner-view").append(this.rollers["beans"].render().el);
+		this.rollersView = new app.RollersView({collection: this.rollers});
+		$("#spinner-view").html(this.rollersView.render().el);
+
+		makerRoller.set("position",1);
+		filterRoller.set("position",2);
+		beansRoller.set("position",3);
+
+		// $("#spinner-view").html(' ');
+		// this.rollers["maker"] = new app.SectionsView({id:"roller1", collection: makerSections});
+		// $("#spinner-view").append(this.rollers["maker"].render().el);
+
+		// this.rollers["filter"] = new app.SectionsView({id:"roller2", collection: filterSections});
+		// $("#spinner-view").append(this.rollers["filter"].render().el);
+
+		// this.rollers["beans"] = new app.SectionsView({id:"roller3", collection: beansSections});
+		// $("#spinner-view").append(this.rollers["beans"].render().el);
 	},
 	pullLever: function(){
-		console.log("starting");
+		//console.log("starting");
 		$("#ball").addClass("ball-drop");
 		$("#shaft").addClass("shaft-shrink");
 		if(!this.rolling)
 		{
+			//console.log(this.rollers);
 			this.rolling = true;
-			_.each(this.rollers, function(roller){
+			this.rollers.each(function(roller){
 				roller.startRoll();
-			})
-			console.log(new Date());
+			}, this);
+
+			//console.log(new Date());
 			setTimeout(function(){
 				$("#ball").removeClass("ball-drop");
 				$("#shaft").removeClass("shaft-shrink");
@@ -112,14 +136,11 @@ app.Machine = Backbone.Model.extend({
 		}
 	},
 	stopAll: function(delay, interval){
-		console.log("stopping");
-		_.each(this.rollers, function(roller, i){
+		//console.log("stopping");
+		this.rollers.each(function(roller, i){
 			roller.stopRoll(delay + interval * roller.collection.position);
-			console.log(roller.collection.rollValue);
+			//console.log(roller.collection.rollValue);
 		});
 		this.rolling = false;
-	},
-	setStopped: function(){
-		console.log("stopped");
 	}
 });
