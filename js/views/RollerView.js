@@ -14,6 +14,7 @@ app.RollerView = Backbone.View.extend({
 		this.$el.append(sectionView.render().el);
 	},
 	startRoll: function(){
+		this.model.rolling = true;
 		this.$el.addClass("roll");
 	},
 	stopRoll: function(timeout){
@@ -32,5 +33,6 @@ app.RollerView = Backbone.View.extend({
 			}, 250);
 		}
 		setTimeout(stop, timeout);
+		this.rolling = false;
 	},
 })

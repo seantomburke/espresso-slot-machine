@@ -2,7 +2,8 @@ var app = app || {}
 
 app.Machine = Backbone.Model.extend({
 	defaults: {
-		rollers: {}
+		rollers: {},
+		rolling: false
 	},
 	initialize: function(){
 		//this.collection = new app.Rollers;
@@ -89,14 +90,26 @@ app.Machine = Backbone.Model.extend({
 		$("#spinner-view").append(this.rollers["beans"].render().el);
 	},
 	pullLever: function(){
-		_.each(this.rollers, function(roller){
-			roller.startRoll();
-		})
+		console.log("starting");
+		$("#ball").addClass("ball-drop");
+		$("#shaft").addClass("shaft-shrink");
+		if(!this.rollers)
+		{
+			_.each(this.rollers, function(roller){
+				roller.startRoll();
+			})
+			console.log(new Date());
+			setTimeout(function(){
+				$("#ball").removeClass("ball-drop");
+				$("#shaft").removeClass("shaft-shrink");
+			}, 1000);
+			this.stopAll(2000*Math.random(), 1000)
+		}
 	},
-	stopAll: function(timeout){
+	stopAll: function(delay, interval){
+		console.log("stopping");
 		_.each(this.rollers, function(roller, i){
-			console.log(i, roller);
-			roller.stopRoll(timeout * roller.collection.position);
+			roller.stopRoll(delay + interval * roller.collection.position);
 			console.log(roller.collection.rollValue);
 		})
 	}

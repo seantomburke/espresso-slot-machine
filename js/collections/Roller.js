@@ -5,6 +5,7 @@ app.Roller = Backbone.Collection.extend({
 	defaults: {
 		rollValue: 0,
 		position: 0,
+		rolling: false,
 	},
 	initialize: function(){
 		console.log("initializing Roller.js");
