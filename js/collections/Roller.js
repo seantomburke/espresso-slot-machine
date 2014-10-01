@@ -8,7 +8,6 @@ app.Roller = Backbone.Collection.extend({
 		rolling: false,
 	},
 	initialize: function(){
-		console.log("initializing Roller.js");
 		var _this = this;
 		this.on('change', function(){
 			console.log(_this.rollValue);

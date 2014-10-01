@@ -6,7 +6,10 @@ app.Machine = Backbone.Model.extend({
 		rolling: false
 	},
 	initialize: function(){
+
+		this.on("roller:stopped", this.setStopped);
 		//this.collection = new app.Rollers;
+		this.rolling = false;
 		this.rollers = {};
 		//makers
 		var coffeeMaker = new app.Section({
@@ -93,8 +96,9 @@ app.Machine = Backbone.Model.extend({
 		console.log("starting");
 		$("#ball").addClass("ball-drop");
 		$("#shaft").addClass("shaft-shrink");
-		if(!this.rollers)
+		if(!this.rolling)
 		{
+			this.rolling = true;
 			_.each(this.rollers, function(roller){
 				roller.startRoll();
 			})
@@ -103,7 +107,7 @@ app.Machine = Backbone.Model.extend({
 				$("#ball").removeClass("ball-drop");
 				$("#shaft").removeClass("shaft-shrink");
 			}, 1000);
-			this.stopAll(2000*Math.random(), 1000)
+			this.stopAll(1000 + 1000*Math.random(), 1000)
 		}
 	},
 	stopAll: function(delay, interval){
@@ -111,6 +115,9 @@ app.Machine = Backbone.Model.extend({
 		_.each(this.rollers, function(roller, i){
 			roller.stopRoll(delay + interval * roller.collection.position);
 			console.log(roller.collection.rollValue);
-		})
+		});
+	},
+	setStopped: function(){
+		console.log("stopped");
 	}
 });
