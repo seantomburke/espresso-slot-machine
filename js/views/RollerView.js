@@ -8,6 +8,9 @@ app.RollerView = Backbone.View.extend({
 		console.log(this.el);
 		//this.listenTo(app.MachineView, "roll:start", this.startRoll);
 	},
+	events:{
+		"click .roller": "startRoll"
+	},
 	render: function(){
 		//console.log("RollerView", this.model.sectionsView.render().el);
 		this.$el.html(this.model.sectionsView.render().el);

@@ -4,14 +4,18 @@ app.MachineView = Backbone.View.extend({
 	tagName:"div",
 	className:"machine",
 	initialize:function(){
-		$("#lever").on("animationend", this.removeRollClass);
-		$("#lever").on("webkitAnimationEnd",this.removeRollClass);
+		//$("#lever").on("animationend", this.removeRollClass);
+		//$("#lever").on("webkitAnimationEnd",this.removeRollClass);
+		// this.$el.on("animationend", this.removeRollClass);
+		// this.$el.on("webkitAnimationEnd",this.removeRollClass);
 	},
 	render: function(){
 
 	},
 	events: {
-    	"click #lever": "pullLever"
+    	"click #lever": "pullLever",
+    	"animationend": "removeRollClass",
+    	"webkitAnimationEnd": "removeRollClass",
   	},
 	pullLever: function(){
 		//console.log("starting");
