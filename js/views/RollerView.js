@@ -3,13 +3,18 @@ var app = app || {};
 app.RollerView = Backbone.View.extend({
 	tagName: "div",
 	className: "roller",
+	intitialize:function(){
+		this.$el.on("click", startRoll);
+		console.log(this.el);
+		//this.listenTo(app.MachineView, "roll:start", this.startRoll);
+	},
 	render: function(){
 		//console.log("RollerView", this.model.sectionsView.render().el);
 		this.$el.html(this.model.sectionsView.render().el);
 		return this;
 	},
 	startRoll: function(){
-			//console.log("starting roll")
+			console.log("startRoll");
 			this.$el.addClass("roll");
 	},
 	stopRoll: function(timeout){

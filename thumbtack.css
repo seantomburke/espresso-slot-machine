@@ -2,11 +2,11 @@
 	width: 1000px;
 }
 
-#machine{
+#box{
 	padding: 10px;
 	background-color: #444;
 	height: 600px;
-	width: 800px;
+	width: 780px;
 	float: left;
 	border-top: inset 20px;
 	border-left: outset 20px;
@@ -14,6 +14,7 @@
 
 #title{
 	color: white;
+	width: 660px;
 	font-family: verdana;
 	text-align: center;
 	border: inset 10px;
@@ -24,9 +25,10 @@
 	clip: rect(0px,20px,20px,0px);
 	margin: 0px auto;	
 	position: relative;
-	width: 700px;
+	width: 660px;
 	overflow: hidden;
 	height: 220px;
+	border: inset 10px;
 }
 
 .roller{
@@ -50,6 +52,7 @@
 	background-color: #222;
 	float:left;
 	top: 320px;
+	left: -30px;
 	position: relative;
 }
 #lever{
@@ -66,6 +69,7 @@
 	float: left;
 	position: relative;
 	top: 0px;
+	left: -90px;
 	border-radius: 100px;
 	-webkit-border-radius: 100px;
 }
@@ -86,8 +90,8 @@
 	width: 20px;
 	float: left;
 	position: relative;
-	left: 60px;
-	top: 30px;
+	left: -30px;
+	top: 60px;
 }
 
 /* animations */
@@ -117,30 +121,30 @@
 @-webkit-keyframes shaft-shrink {
     0% {
     	height: 280px;
-    	top: 30px;
+    	top: 60px;
     }
     50% {
     	height: 20px;
-    	top: 290px;
+    	top: 320px;
     }
     100% {
     	height: 280px;
-    	top: 30px;
+    	top: 60px;
     }
 }
 
 @keyframes shaft-shrink {
     0% {
     	height: 280px;
-    	top: 30px;
+    	top: 60px;
     }
     50% {
     	height: 20px;
-    	top: 290px;
+    	top: 340px;
     }
     100% {
     	height: 280px;
-    	top: 30px;
+    	top: 60px;
     }
 }
 .roll {

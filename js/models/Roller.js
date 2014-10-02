@@ -22,6 +22,7 @@ app.Roller = Backbone.Model.extend({
 	startRoll:function(){
 		//console.log("rolling started");
 		this.set("rolling", true);
+		this.trigger("startRoll");
 		//console.log(this.get("rolling"));
 	},
 	stopRoll:function(){

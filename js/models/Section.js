@@ -31,7 +31,7 @@ app.Section = Backbone.Model.extend({
 	},
 	initialize: function(){
 		this.on('change', function(){
-
+			console.log(this);
 		})
 	}
 })
