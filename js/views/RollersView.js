@@ -3,6 +3,9 @@ var app = app || {};
 app.RollersView = Backbone.View.extend({
 	tagName: "div",
 	className: "spinner-view",
+	initialize: function(){
+		console.log("RollersView", this);
+	},
 	render: function(){
 		this.$el.html(' ');
 		this.collection.each(this.addRoller, this);
