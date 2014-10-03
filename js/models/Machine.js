@@ -2,7 +2,8 @@ var app = app || {}
 
 app.Machine = Backbone.Model.extend({
 	defaults: {
-		rolling: false
+		rolling: false,
+		leverPulled: false
 	},
 	initialize: function(){
 
@@ -94,20 +95,27 @@ app.Machine = Backbone.Model.extend({
 			sections: beansSections
 		});
 
-		this.rollers = new app.Rollers([
-			makerRoller, filterRoller, beansRoller
-			]);
-
-		this.rollersView = new app.RollersView({collection: this.rollers});
-		$("#spinner-view").html(this.rollersView.render().el);
+		var makerRollerView = new app.RollerView({
+			model: makerRoller
+		});
+		console.log("makerRollerView", makerRollerView);
+		var filterRollerView = new app.RollerView({
+			model: filterRoller
+		});
+		var beansRollerView = new app.RollerView({
+			model: beansRoller
+		});
 
 		makerRoller.set("position",1);
 		filterRoller.set("position",2);
 		beansRoller.set("position",3);
 
-		machineView = new app.MachineView({ el: $("#machine")});
+		var rollerCollection = new app.Rollers([
+			makerRollerView.model, filterRollerView.model, beansRollerView.model
+			]);
 
-		
+		this.rollers = new app.RollersView({collection: rollerCollection});
+		$("#spinner-view").html(this.rollers.render().el);
 
 		// $("#spinner-view").html(' ');
 		// this.rollers["maker"] = new app.SectionsView({id:"roller1", collection: makerSections});

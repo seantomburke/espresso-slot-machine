@@ -148,7 +148,7 @@
     }
 }
 .roll {
--webkit-animation: roll 1s linear 1s infinite reverse;
+-webkit-animation: roll 1s linear 0s infinite reverse;
 animation: roll 1s linear 0s infinite reverse;
 }
 

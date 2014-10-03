@@ -4,12 +4,15 @@ app.RollerView = Backbone.View.extend({
 	tagName: "div",
 	className: "roller",
 	intitialize:function(){
-		this.$el.on("click", startRoll);
-		console.log(this.el);
+		console.log("fuck shit");
+		console.log("el", this.el);
+		this.model.on("change:rolling", this.startRoll, this);
+		this.mode.on("startRoll", this.startRoll, this);
 		//this.listenTo(app.MachineView, "roll:start", this.startRoll);
 	},
 	events:{
-		"click .roller": "startRoll"
+		"click .roller": "startRoll",
+		"startRoll": "startRoll"
 	},
 	render: function(){
 		//console.log("RollerView", this.model.sectionsView.render().el);
@@ -17,7 +20,7 @@ app.RollerView = Backbone.View.extend({
 		return this;
 	},
 	startRoll: function(){
-			console.log("startRoll");
+			console.log("Roller View","startRoll");
 			this.$el.addClass("roll");
 	},
 	stopRoll: function(timeout){
@@ -39,5 +42,5 @@ app.RollerView = Backbone.View.extend({
 		this.trigger("roller:stopped");
 		this.rolling = false;
 		return false;
-	},
+	}
 })

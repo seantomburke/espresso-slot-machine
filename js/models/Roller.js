@@ -15,14 +15,19 @@ app.Roller = Backbone.Model.extend({
 		this.sectionsView = new app.SectionsView({
 			collection: this.sections
 		});
-		this.on("change", function(){
-			//console.log("changing");
-		})
+	},
+	events:{
+		"change:rolling": "rollingHandler"
+	},
+	rollingHandler: function(){
+		if(this.get("rolling")){
+			startRoll();
+		}else{
+			stopRoll();
+		}
 	},
 	startRoll:function(){
-		//console.log("rolling started");
-		this.set("rolling", true);
-		this.trigger("startRoll");
+		console.log("triggered rolling started");
 		//console.log(this.get("rolling"));
 	},
 	stopRoll:function(){
