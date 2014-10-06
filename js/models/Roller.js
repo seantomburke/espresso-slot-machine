@@ -2,7 +2,7 @@ var app = app || {};
 
 app.Roller = Backbone.Model.extend({
 	defaults: {
-		rollValue: 0,
+		rollValue: -1,
 		position: 0,
 		rolling: false,
 	},

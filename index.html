@@ -5,6 +5,8 @@
     <link rel="stylesheet" href="thumbtack.css">
 </head>
 <body>
+<div id="background">
+</div>
 <div id="machine">
 	<div id="box">
 				<div><h1 id="title">Sean's Magic Drink Machine</h1></div>
@@ -25,6 +27,10 @@
 		    		</div>
 		    	</div>
 	    	</div>
+	    	<div id="winner">
+	    		<div class="door door-left"></div>
+	    		<div class="door door-right"></div>
+	    	</div>
 	</div>
 	<div id="lever">
 		<div id="lever-joint"></div>
@@ -34,20 +40,162 @@
 		</div>
 	</div>
 </div>
+<div id="table">
+</div>
 <script id="roller-section-template" type="text/template">
 <img><%= image %></img>
 <!--<span class="caption"><%= value %></span>-->
 </script>
+
+<script id="winner-template" type="text/template">
+	<div class="door door-left"></div>
+	<div class="door door-right"></div>
+		<div id="winner-top">
+			<div class="winner-view-left"></div>
+			<div class="winner-view-middle"></div>
+			<div class="winner-view-right"></div>
+		</div>
+		<div id="winner-bottom">
+			<div class="winner-view-left"></div>
+			<div class="winner-view-middle">
+				<div id="winner-value">
+					<div id="winner-image"><%= image %></div>
+					<span><%= value %></span>
+				</div>
+			</div>
+			<div class="winner-view-right"></div>
+		</div>
+</script>
+<script id="coffee-cup" type="text/template">
+	<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="200" height="200"  xml:space="preserve">
+    <defs>
+        <linearGradient id="gradient-coffee" x1="103.5" y1="68.5" x2="103.5" y2="89.5" gradientUnits="userSpaceOnUse" >
+            <stop offset="0" stop-color="rgb(109, 73, 0)" stop-opacity="1" />
+            <stop offset="1" stop-color="rgb(51, 34, 0)" stop-opacity="1" />
+        </linearGradient>
+        <linearGradient id="gradient2-cup" x1="52.28" y1="66.72" x2="151.98" y2="166.43" gradientUnits="userSpaceOnUse" >
+            <stop offset="0.56" stop-color="rgb(255, 255, 255)" stop-opacity="1" />
+            <stop offset="0.56" stop-color="rgb(245, 245, 245)" stop-opacity="1" />
+            <stop offset="1" stop-color="rgb(236, 236, 236)" stop-opacity="1" />
+        </linearGradient>
+    </defs>
+    <ellipse id="plate" stroke="rgb(0, 0, 0)" stroke-width="0.5" fill="rgb(255, 255, 255)" cx="103" cy="163.5" rx="84.5" ry="27" />
+    <ellipse id="plate2" stroke="rgb(0, 0, 0)" stroke-opacity="0" stroke-width="0.5" fill="rgb(236, 236, 236)" cx="103.5" cy="163.5" rx="57" ry="19" />
+    <path id="handle" stroke="rgb(0, 0, 0)" stroke-width="0.5" stroke-miterlimit="10" fill="rgb(255, 255, 255)" d="M 34.38,99.53 C 25.21,108.9 25.21,124.1 34.38,133.47 43.56,142.84 58.44,142.84 67.62,133.47 76.79,124.1 76.79,108.9 67.62,99.53 58.44,90.16 43.56,90.16 34.38,99.53 Z M 77.52,90.48 C 92.16,105.13 92.16,128.87 77.52,143.52 62.87,158.16 39.13,158.16 24.48,143.52 9.84,128.87 9.84,105.13 24.48,90.48 39.13,75.84 62.87,75.84 77.52,90.48 Z M 77.52,90.48" />
+    <ellipse id="backcup" stroke="rgb(0, 0, 0)" stroke-width="0.5" fill="rgb(255, 255, 255)" cx="103" cy="68.5" rx="50.5" ry="21" />
+    <ellipse id="coffee" stroke="rgb(0, 0, 0)" stroke-width="0.5" fill="url(#gradient-coffee)" cx="103.5" cy="89.5" rx="50" ry="21" />
+    <path id="cup" stroke="rgb(0, 0, 0)" stroke-width="0.5" stroke-miterlimit="10" fill="url(#gradient2-cup)" d="M 53.5,66.5 C 53.5,71 58.43,75.5 68.29,78.93 88.01,85.79 119.99,85.79 139.71,78.93 147.01,76.39 151.6,73.27 153.5,69.99 L 153.5,161.92 C 153.5,166.42 148.57,170.92 138.71,174.35 118.99,181.22 87.01,181.22 67.29,174.35 57.43,170.92 52.5,166.42 52.5,161.92 L 52.5,66.5 53.5,66.5 Z M 53.5,66.5" />
+    <path id="steam2" stroke="rgb(190, 190, 190)" stroke-opacity="0.49" stroke-width="3" stroke-linecap="square" stroke-linejoin="round" stroke-miterlimit="10" fill="none" d="M 103,8 C 103,8 83.25,18 83,28 82.75,38 102.25,38 102,48 101.75,58 82,68 82,68" stroke-dasharray="100 100"
+  		stroke-dashoffset="0">
+	  		<animate attributeName="stroke-dashoffset" attributeType="XML"
+	             from="0"  to="200"
+	             begin="0s" dur="2.2s"
+	             repeatCount="indefinite"/>
+  	</path>
+    <path id="steam" stroke="rgb(190, 190, 190)" stroke-opacity="0.49" stroke-width="3" stroke-linecap="square" stroke-linejoin="round" stroke-miterlimit="10" fill="none" d="M 134,8 C 134,8 114.25,18 114,28 113.75,38 133.25,38 133,48 132.75,58 113,68 113,68" stroke-dasharray="100 100"
+  		stroke-dashoffset="0">
+	  		<animate attributeName="stroke-dashoffset" attributeType="XML"
+	             from="0"  to="200"
+	             begin="0s" dur="2.2s"
+	             repeatCount="indefinite"/>
+  	</path>
+</svg>
+</script>
+
+<script id="espresso-cup" type="text/template">
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="200" height="200"  xml:space="preserve">
+    <defs>
+        <linearGradient id="gradient-topBrown" x1="102.5" y1="85.5" x2="102.5" y2="104" gradientUnits="userSpaceOnUse" >
+            <stop offset="0" stop-color="rgb(226, 151, 0)" stop-opacity="1" />
+            <stop offset="1" stop-color="rgb(51, 34, 0)" stop-opacity="1" />
+        </linearGradient>
+        <linearGradient id="gradient-brownCoffee" x1="102.5" y1="94.5" x2="102.5" y2="117.94" gradientUnits="userSpaceOnUse" >
+            <stop offset="0" stop-color="rgb(226, 151, 0)" stop-opacity="1" />
+            <stop offset="1" stop-color="rgb(51, 34, 0)" stop-opacity="1" />
+        </linearGradient>
+        <linearGradient id="gradient2-froth" x1="102.25" y1="87.5" x2="102.25" y2="99" gradientUnits="userSpaceOnUse" >
+            <stop offset="0.56" stop-color="rgb(255, 255, 255)" stop-opacity="1" />
+            <stop offset="0.56" stop-color="rgb(245, 245, 245)" stop-opacity="1" />
+            <stop offset="1" stop-color="rgb(236, 236, 236)" stop-opacity="1" />
+        </linearGradient>
+    </defs>
+    <ellipse id="plate" stroke="rgb(0, 0, 0)" stroke-width="0.5" fill="rgb(255, 255, 255)" cx="103" cy="163.5" rx="84.5" ry="27" />
+    <ellipse id="plate2" stroke="rgb(0, 0, 0)" stroke-opacity="0" stroke-width="0.5" fill="rgb(236, 236, 236)" cx="103.5" cy="163.5" rx="57" ry="19" />
+    <path id="steam2" stroke="rgb(190, 190, 190)" stroke-opacity="0.49" stroke-width="3" stroke-linecap="square" stroke-linejoin="round" stroke-miterlimit="10" fill="none" d="M 103,8 C 103,8 83.25,18 83,28 82.75,38 102.25,38 102,48 101.75,58 82,68 82,68" stroke-dasharray="100 100"
+  		stroke-dashoffset="0">
+	  		<animate attributeName="stroke-dashoffset" attributeType="XML"
+	             from="0"  to="200"
+	             begin="0s" dur="2.2s"
+	             repeatCount="indefinite"/>
+  	</path>
+    <path id="steam" stroke="rgb(190, 190, 190)" stroke-opacity="0.49" stroke-width="3" stroke-linecap="square" stroke-linejoin="round" stroke-miterlimit="10" fill="none" d="M 134,8 C 134,8 114.25,18 114,28 113.75,38 133.25,38 133,48 132.75,58 113,68 113,68" stroke-dasharray="100 100"
+  		stroke-dashoffset="0">
+	  		<animate attributeName="stroke-dashoffset" attributeType="XML"
+	             from="0"  to="200"
+	             begin="0s" dur="2.2s"
+	             repeatCount="indefinite"/>
+  	</path>
+    <ellipse id="backcup" stroke="rgb(0, 0, 0)" stroke-width="0.5" fill="rgb(255, 255, 255)" fill-opacity="0.19" cx="102.75" cy="85.75" rx="46.75" ry="10.75" />
+    <ellipse id="topBrown" stroke="rgb(0, 0, 0)" stroke-width="0.5" fill="url(#gradient-topBrown)" cx="102.5" cy="94.75" rx="39" ry="9.25" />
+    <path id="brownCoffee" stroke="rgb(0, 0, 0)" stroke-width="0.5" stroke-miterlimit="10" fill="url(#gradient-brownCoffee)" d="M 140.27,111.28 C 138.6,112.77 135.22,114.17 130.14,115.34 114.99,118.81 90.43,118.81 75.28,115.34 69.66,114.05 66.12,112.47 64.67,110.81 63.89,103.77 63.5,97.69 63.5,94.5 L 64.43,94.5 C 65.7,96.27 69.31,97.97 75.28,99.34 90.43,102.81 114.99,102.81 130.14,99.34 136.1,97.97 139.72,96.27 140.99,94.5 L 141.5,94.5 C 141.5,97.76 141.09,104.04 140.27,111.28 Z M 140.27,111.28" />
+    <path id="blackCoffee" stroke="rgb(0, 0, 0)" stroke-width="0.5" stroke-miterlimit="10" fill="rgb(0, 0, 0)" d="M 130.55,151.22 C 115.05,167.59 89.92,167.59 74.42,151.22 69.17,145.67 65.69,125.02 64,108.94 65.98,110.01 68.58,111.02 71.78,111.91 88.58,116.62 115.82,116.62 132.62,111.91 136.16,110.92 138.95,109.8 141,108.61 139.32,124.73 135.84,145.63 130.55,151.22 Z M 130.55,151.22" />
+    <ellipse id="froth" stroke="rgb(0, 0, 0)" stroke-width="0.5" fill="url(#gradient2-froth)" cx="102.25" cy="93.25" rx="31.75" ry="5.75" />
+    <path id="cup" stroke="rgb(0, 0, 0)" stroke-width="0.5" stroke-miterlimit="10" fill="rgb(255, 255, 255)" fill-opacity="0.19" d="M 149.03,97.23 C 154.7,93.14 162.65,93.65 167.75,98.75 173.42,104.41 173.42,113.59 167.75,119.25 162.09,124.92 152.91,124.92 147.25,119.25 147.03,119.03 146.82,118.81 146.62,118.58 144.34,133.94 140.71,149.76 135.73,154.73 117.38,173.09 87.62,173.09 69.27,154.73 60.09,145.56 55.5,99.53 55.5,87.5 L 56.62,87.5 C 58.15,89.64 62.51,91.7 69.69,93.35 87.95,97.55 117.55,97.55 135.81,93.35 142.99,91.7 147.35,89.64 148.88,87.5 L 149.5,87.5 C 149.5,89.73 149.34,93.12 149.03,97.23 Z M 157.06,99.54 C 154.87,99.65 152.73,100.55 151.07,102.24 147.53,105.87 147.53,111.74 151.07,115.37 154.62,118.99 160.38,118.99 163.93,115.37 167.47,111.74 167.47,105.87 163.93,102.24 162.03,100.31 159.52,99.41 157.04,99.54 L 157.06,99.54 Z M 157.06,99.54" />
+</svg>
+</script>
+<script id="tea-cup" type="text/template">
+	<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="200" height="200"  xml:space="preserve">
+    <defs>
+        <linearGradient id="gradient-coffee" x1="101.5" y1="102.5" x2="101.5" y2="123.5" gradientUnits="userSpaceOnUse" >
+            <stop offset="0" stop-color="rgb(226, 153, 0)" stop-opacity="0.48" />
+            <stop offset="1" stop-color="rgb(229, 134, 9)" stop-opacity="0.69" />
+        </linearGradient>
+    </defs>
+    <ellipse id="plate" stroke="rgb(0, 0, 0)" stroke-width="0.5" fill="rgb(255, 255, 255)" cx="103" cy="163.5" rx="84.5" ry="27" />
+    <ellipse id="plate2" stroke="rgb(0, 0, 0)" stroke-opacity="0" stroke-width="0.5" fill="rgb(236, 236, 236)" cx="103.5" cy="163.5" rx="57" ry="19" />
+    <path id="backcup" stroke="rgb(0, 0, 0)" stroke-width="0.5" stroke-miterlimit="10" fill="rgb(255, 255, 255)" d="M 150.85,124.85 C 178.38,116.65 178.38,103.35 150.85,95.15 123.32,86.95 78.68,86.95 51.15,95.15 23.62,103.35 23.62,116.65 51.15,124.85 78.68,133.05 123.32,133.05 150.85,124.85 Z M 150.85,124.85" />
+    <path id="coffee" stroke="rgb(0, 0, 0)" stroke-width="0.5" stroke-miterlimit="10" fill="url(#gradient-coffee)" d="M 149.23,138.35 C 175.59,130.15 175.59,116.85 149.23,108.65 122.87,100.45 80.13,100.45 53.77,108.65 27.41,116.85 27.41,130.15 53.77,138.35 80.13,146.55 122.87,146.55 149.23,138.35 Z M 149.23,138.35" />
+    <path id="handle" stroke="rgb(0, 0, 0)" stroke-width="0.5" stroke-miterlimit="10" fill="rgb(255, 255, 255)" d="M 34.09,131.24 C 31.45,131.97 28.98,133.15 26.87,134.79 19.24,140.71 19.24,150.3 26.87,156.22 33.6,161.43 44,162.05 51.6,158.09 53.9,160.61 56.29,162.96 58.76,165.13 46.58,171.71 29.56,170.86 18.64,162.56 6.45,153.32 6.45,138.32 18.64,129.07 22.2,126.37 26.42,124.45 30.9,123.33 31.86,126.01 32.92,128.65 34.09,131.24 Z M 34.09,131.24" />
+    <path id="cup" stroke="rgb(0, 0, 0)" stroke-width="0.5" stroke-miterlimit="10" fill="rgb(255, 255, 255)" d="M 150.85,159.85 C 123.32,187.38 78.68,187.38 51.15,159.85 37.51,146.21 30.63,128.38 30.5,110.5 30.93,115.71 37.81,120.88 51.15,124.85 78.68,133.05 123.32,133.05 150.85,124.85 164.19,120.88 171.07,115.71 171.48,110.5 171.37,128.38 164.49,146.21 150.85,159.85 Z M 150.85,159.85" />
+    <path id="tag2" stroke="none" fill="rgb(190, 190, 190)" fill-opacity="0.49" d="M 151.33,157.5 L 151.5,157.5 151.5,157.61 151.5,157.69 151.5,188.5 113.5,188.5 113.5,157.69 113.48,157.63 113.5,157.5 113.67,157.5 132.5,144.5 151.33,157.5 Z M 132.5,144.5 L 131.5,131.5 132.5,144.5 Z M 132.5,144.5" />
+    <path id="tag" stroke="rgb(0, 0, 0)" stroke-width="0.5" stroke-miterlimit="10" fill="rgb(255, 204, 204)" d="M 152.33,154.5 L 152.5,154.5 152.5,154.61 152.5,154.69 152.5,185.5 114.5,185.5 114.5,154.69 114.48,154.63 114.5,154.5 114.67,154.5 133.5,141.5 152.33,154.5 Z M 133.5,141.5 L 132.5,128.5 133.5,141.5 Z M 133.5,141.5" />
+    <path id="rim2" stroke="rgb(168, 168, 0)" stroke-width="2" stroke-miterlimit="10" fill="none" d="M 150,124.85 C 177.33,116.65 177.33,103.35 150,95.15 122.66,86.95 78.34,86.95 51,95.15 23.67,103.35 23.67,116.65 51,124.85 78.34,133.05 122.66,133.05 150,124.85 Z M 150,124.85" />
+    <path id="rim" stroke="rgb(136, 116, 70)" stroke-width="2" stroke-miterlimit="10" fill="none" d="M 150.7,125.85 C 178.43,117.65 178.43,104.35 150.7,96.15 122.98,87.95 78.02,87.95 50.3,96.15 22.57,104.35 22.57,117.65 50.3,125.85 78.02,134.05 122.98,134.05 150.7,125.85 Z M 150.7,125.85" />
+    <path id="steam2" stroke="rgb(190, 190, 190)" stroke-opacity="0.49" stroke-width="3" stroke-linecap="square" stroke-linejoin="round" stroke-miterlimit="10" fill="none" d="M 103,19 C 103,19 83.25,32.67 83,46.33 82.75,60 102.25,60 102,73.67 101.75,87.33 82,101 82,101"  stroke-dasharray="100 100"
+  		stroke-dashoffset="0">
+	  		<animate attributeName="stroke-dashoffset" attributeType="XML"
+	             from="0"  to="200"
+	             begin="0s" dur="2.2s"
+	             repeatCount="indefinite"/>
+  	</path>
+    <path id="steam" stroke="rgb(190, 190, 190)" stroke-opacity="0.49" stroke-width="3" stroke-linecap="square" stroke-linejoin="round" stroke-miterlimit="10" fill="none" d="M 132,19 C 132,19 112.25,32.67 112,46.33 111.75,60 131.25,60 131,73.67 130.75,87.33 111,101 111,101"  stroke-dasharray="100 100"
+  		stroke-dashoffset="0">
+	  		<animate attributeName="stroke-dashoffset" attributeType="XML"
+	             from="0"  to="200"
+	             begin="0s" dur="2.2s"
+	             repeatCount="indefinite"/>
+  	</path>
+</svg>
+</script>
+
 <script src="js/libs/jquery-1.11.1.min.js"></script>
 <script src="js/libs/underscore.js"></script>
 <script src="js/libs/backbone.js"></script>
 <script src="js/models/Section.js"></script>
 <script src="js/models/Roller.js"></script>
+<script src="js/models/Winner.js"></script>
 <script src="js/models/Machine.js"></script>
 <script src="js/views/SectionView.js"></script>
 <script src="js/views/SectionsView.js"></script>
 <script src="js/views/RollerView.js"></script>
 <script src="js/views/RollersView.js"></script>
+<script src="js/views/WinnerView.js"></script>
 <script src="js/views/MachineView.js"></script>
 <script src="js/collections/Sections.js"></script>
 <script src="js/collections/Rollers.js"></script>

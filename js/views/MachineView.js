@@ -4,9 +4,10 @@ app.MachineView = Backbone.View.extend({
 	tagName:"div",
 	className:"machine",
 	initialize:function(){
+		this.rollers = [];
+		this.stoppers = [];
 		this.render();
 		this.model.on('change:leverPulled', this.leverHandler, this);
-		this.model.on('change:rolling', this.addRollingClass, this);
 		//$("#lever").on("animationend", this.removeRollClass);
 		//$("#lever").on("webkitAnimationEnd",this.removeRollClass);
 		// this.$el.on("animationend", this.removeRollClass);
@@ -101,24 +102,34 @@ app.MachineView = Backbone.View.extend({
 		});
 
 		this.rollers = [];
-		this.rollers["maker"] = new app.RollerView({
+		this.rollers.push(new app.RollerView({
 			model: makerRoller
-		});
+		}));
+		this.rollers[0].on("change:rolling", function(){
+			console.log("maker rolling");
+		})
 
-		this.rollers["filter"] = new app.RollerView({
+		this.rollers.push(new app.RollerView({
 			model: filterRoller
-		});
+		}));
 
-		this.rollers["beans"] = new app.RollerView({
+		this.rollers.push(new app.RollerView({
 			model: beansRoller
-		});
+		}));
 
 		var rollerCollection = new app.Rollers([
 			makerRoller, filterRoller, beansRoller
-			]);
+		]);
 
-		this.rollers = new app.RollersView({collection: rollerCollection});
-		$("#spinner-view").html(this.rollers.render().el);
+		this.rollersView = new app.RollersView({collection: rollerCollection});
+		$("#spinner-view").html(this.rollersView.render().el);
+
+		this.winner = new app.Winner();
+		this.winnerView = new app.WinnerView({
+			model: this.winner
+		});
+
+		$("#winner").html(this.winnerView.render().el);
 
 		// $("#spinner-view").html(' ');
 		// this.rollers["maker"] = new app.SectionsView({id:"roller1", collection: makerSections});
@@ -134,30 +145,34 @@ app.MachineView = Backbone.View.extend({
 	events: {
     	"click #lever": "pullLever",
     	"animationend": "unpullLever",
-    	"webkitAnimationEnd": "unpullLever",
-    	"roll:start": "triggered",
+    	"webkitAnimationEnd": "unpullLever"
   	},
 	pullLever: function(){
-		this.model.set('leverPulled', true);
-		console.log(this.model.get('leverPulled'));
-		if(!this.model.get("rolling"))
-		{
-			this.model.set("rolling",true);
+		this.winnerView.model.set("value", undefined);
+		for(var i in this.rollers){
+			this.rollers[i].model.set("rollValue", -1);
+			this.rollers[i].model.set("rollBeverage", undefined);
 		}
+		this.model.set('leverPulled', true);
 	},
 	unpullLever: function(){
 		this.model.set('leverPulled', false);
 	},
 	stopAll: function(delay, interval){
 		//console.log("stopping");
-		this.model.rollers.each(function(roller){
+		this.rollers.collection.each(function(roller){
 			roller.stopRoll(delay + interval * roller.collection.position);
-			//console.log(roller.collection.rollValue);
 		});
 		this.model.set("rolling",false);
 	},
 	leverHandler: function(){
-		(this.model.get("leverPulled")) ? this.addLeverClass() : this.removeLeverClass();
+		if(this.model.get("leverPulled")){
+			this.addLeverClass();
+			this.rollingHandler();
+		}
+		else {
+			this.removeLeverClass();
+		}
 	},
 	addLeverClass: function(){
 		$("#ball").addClass("ball-drop");
@@ -167,15 +182,56 @@ app.MachineView = Backbone.View.extend({
 		$("#ball").removeClass("ball-drop");
 		$("#shaft").removeClass("shaft-shrink");
 	},
+	rollingHandler: function(){
+		console.log(this.model.get("rolling"));
+		if(!this.model.get("rolling"))
+		{
+			this.model.set("rolling",true);
+			for(var i=0; i<this.stoppers.length;i++)
+			{
+				clearTimeout(this.stoppers[i]);
+			}
+			this.addRollingClass();
+			this.stopRollers(_.random(1000, 2000), _.random(500,1000), this);
+			this.model.set("rolling", false);
+		}
+	},
 	addRollingClass: function(){
-		this.rollers.collection.each(function(roller){
-			roller.set("rolling", true);
-			roller.trigger("startRoll");
-			console.log(roller);
-		}, this);
+		console.log("starting rollers");
+		$(".roller").addClass("roll");
 		// this.stopAll(1000 + 1000*Math.random(), 1000)
 		// this.on("animationstop", function(){
 		// 	console.log("animation end");
 		// })
 	},
+	stopRollers: function(delay, interval, _this){
+		console.log("stopping rollers");
+		$(".roller").each(function(i,el){
+			var stop = function(){
+				var top = $(el).position().top;
+				var index = Math.round(top/210);
+				var new_top = index*210;
+				_this.rollers[i].model.set("rollValue", Math.abs(index) % 3);
+				_this.rollers[i].model.set("rollBeverage", app.Beverages[Math.abs(index) % 3]);
+				_this.getWinner();
+				$(el).css("top", top);
+				$(el).removeClass("roll");
+				$(el).animate({
+					top: new_top
+				}, 250);
+			};
+			_this.stoppers[i] = setTimeout(stop, delay + interval * i);
+		});
+	},
+	getWinner: function(){
+		rollValues = _.map(this.rollers, function(roller){ return roller.model.get("rollBeverage")});
+		console.log(rollValues);
+
+		winner = _.reduce(rollValues, function(val1, val2){ return (val1==val2) ? val1:false; });
+		if(winner)
+		{
+			console.log(winner);
+			this.winnerView.model.set("value", winner);
+		}
+	}
 })

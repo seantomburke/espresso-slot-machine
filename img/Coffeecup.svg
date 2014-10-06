@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="200" height="200"  xml:space="preserve">
+    <defs>
+        <linearGradient id="gradient-coffee" x1="103.5" y1="68.5" x2="103.5" y2="89.5" gradientUnits="userSpaceOnUse" >
+            <stop offset="0" stop-color="rgb(109, 73, 0)" stop-opacity="1" />
+            <stop offset="1" stop-color="rgb(51, 34, 0)" stop-opacity="1" />
+        </linearGradient>
+        <linearGradient id="gradient2-cup" x1="52.28" y1="66.72" x2="151.98" y2="166.43" gradientUnits="userSpaceOnUse" >
+            <stop offset="0.56" stop-color="rgb(255, 255, 255)" stop-opacity="1" />
+            <stop offset="0.56" stop-color="rgb(245, 245, 245)" stop-opacity="1" />
+            <stop offset="1" stop-color="rgb(236, 236, 236)" stop-opacity="1" />
+        </linearGradient>
+    </defs>
+    <ellipse id="plate" stroke="rgb(0, 0, 0)" stroke-width="0.5" fill="rgb(255, 255, 255)" cx="103" cy="163.5" rx="84.5" ry="27" />
+    <ellipse id="plate2" stroke="rgb(0, 0, 0)" stroke-opacity="0" stroke-width="0.5" fill="rgb(236, 236, 236)" cx="103.5" cy="163.5" rx="57" ry="19" />
+    <path id="handle" stroke="rgb(0, 0, 0)" stroke-width="0.5" stroke-miterlimit="10" fill="rgb(255, 255, 255)" d="M 34.38,99.53 C 25.21,108.9 25.21,124.1 34.38,133.47 43.56,142.84 58.44,142.84 67.62,133.47 76.79,124.1 76.79,108.9 67.62,99.53 58.44,90.16 43.56,90.16 34.38,99.53 Z M 77.52,90.48 C 92.16,105.13 92.16,128.87 77.52,143.52 62.87,158.16 39.13,158.16 24.48,143.52 9.84,128.87 9.84,105.13 24.48,90.48 39.13,75.84 62.87,75.84 77.52,90.48 Z M 77.52,90.48" />
+    <ellipse id="backcup" stroke="rgb(0, 0, 0)" stroke-width="0.5" fill="rgb(255, 255, 255)" cx="103" cy="68.5" rx="50.5" ry="21" />
+    <ellipse id="coffee" stroke="rgb(0, 0, 0)" stroke-width="0.5" fill="url(#gradient-coffee)" cx="103.5" cy="89.5" rx="50" ry="21" />
+    <path id="cup" stroke="rgb(0, 0, 0)" stroke-width="0.5" stroke-miterlimit="10" fill="url(#gradient2-cup)" d="M 53.5,66.5 C 53.5,71 58.43,75.5 68.29,78.93 88.01,85.79 119.99,85.79 139.71,78.93 147.01,76.39 151.6,73.27 153.5,69.99 L 153.5,161.92 C 153.5,166.42 148.57,170.92 138.71,174.35 118.99,181.22 87.01,181.22 67.29,174.35 57.43,170.92 52.5,166.42 52.5,161.92 L 52.5,66.5 53.5,66.5 Z M 53.5,66.5" />
+    <path id="steam2" stroke="rgb(190, 190, 190)" stroke-opacity="0.49" stroke-width="3" stroke-linecap="square" stroke-linejoin="round" stroke-miterlimit="10" fill="none" d="M 103,8 C 103,8 83.25,18 83,28 82.75,38 102.25,38 102,48 101.75,58 82,68 82,68" />
+    <path id="steam" stroke="rgb(190, 190, 190)" stroke-opacity="0.49" stroke-width="3" stroke-linecap="square" stroke-linejoin="round" stroke-miterlimit="10" fill="none" d="M 134,8 C 134,8 114.25,18 114,28 113.75,38 133.25,38 133,48 132.75,58 113,68 113,68" />
+</svg>

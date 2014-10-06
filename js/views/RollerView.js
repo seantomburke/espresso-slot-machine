@@ -4,7 +4,6 @@ app.RollerView = Backbone.View.extend({
 	tagName: "div",
 	className: "roller",
 	intitialize:function(){
-		console.log("fuck shit");
 		console.log("el", this.el);
 		this.model.on("change:rolling", this.startRoll, this);
 		this.mode.on("startRoll", this.startRoll, this);

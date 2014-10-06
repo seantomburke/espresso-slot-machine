@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="200" height="200"  xml:space="preserve">
+    <defs>
+        <linearGradient id="gradient-topBrown" x1="102.5" y1="85.5" x2="102.5" y2="104" gradientUnits="userSpaceOnUse" >
+            <stop offset="0" stop-color="rgb(226, 151, 0)" stop-opacity="1" />
+            <stop offset="1" stop-color="rgb(51, 34, 0)" stop-opacity="1" />
+        </linearGradient>
+        <linearGradient id="gradient-brownCoffee" x1="102.5" y1="94.5" x2="102.5" y2="117.94" gradientUnits="userSpaceOnUse" >
+            <stop offset="0" stop-color="rgb(226, 151, 0)" stop-opacity="1" />
+            <stop offset="1" stop-color="rgb(51, 34, 0)" stop-opacity="1" />
+        </linearGradient>
+        <linearGradient id="gradient2-froth" x1="102.25" y1="87.5" x2="102.25" y2="99" gradientUnits="userSpaceOnUse" >
+            <stop offset="0.56" stop-color="rgb(255, 255, 255)" stop-opacity="1" />
+            <stop offset="0.56" stop-color="rgb(245, 245, 245)" stop-opacity="1" />
+            <stop offset="1" stop-color="rgb(236, 236, 236)" stop-opacity="1" />
+        </linearGradient>
+    </defs>
+    <ellipse id="plate" stroke="rgb(0, 0, 0)" stroke-width="0.5" fill="rgb(255, 255, 255)" cx="103" cy="163.5" rx="84.5" ry="27" />
+    <ellipse id="plate2" stroke="rgb(0, 0, 0)" stroke-opacity="0" stroke-width="0.5" fill="rgb(236, 236, 236)" cx="103.5" cy="163.5" rx="57" ry="19" />
+    <path id="steam2" stroke="rgb(190, 190, 190)" stroke-opacity="0.49" stroke-width="3" stroke-linecap="square" stroke-linejoin="round" stroke-miterlimit="10" fill="none" d="M 103,8 C 103,8 83.25,18 83,28 82.75,38 102.25,38 102,48 101.75,58 82,68 82,68" />
+    <path id="steam" stroke="rgb(190, 190, 190)" stroke-opacity="0.49" stroke-width="3" stroke-linecap="square" stroke-linejoin="round" stroke-miterlimit="10" fill="none" d="M 134,8 C 134,8 114.25,18 114,28 113.75,38 133.25,38 133,48 132.75,58 113,68 113,68" />
+    <ellipse id="backcup" stroke="rgb(0, 0, 0)" stroke-width="0.5" fill="rgb(255, 255, 255)" fill-opacity="0.19" cx="102.75" cy="85.75" rx="46.75" ry="10.75" />
+    <ellipse id="topBrown" stroke="rgb(0, 0, 0)" stroke-width="0.5" fill="url(#gradient-topBrown)" cx="102.5" cy="94.75" rx="39" ry="9.25" />
+    <path id="brownCoffee" stroke="rgb(0, 0, 0)" stroke-width="0.5" stroke-miterlimit="10" fill="url(#gradient-brownCoffee)" d="M 140.27,111.28 C 138.6,112.77 135.22,114.17 130.14,115.34 114.99,118.81 90.43,118.81 75.28,115.34 69.66,114.05 66.12,112.47 64.67,110.81 63.89,103.77 63.5,97.69 63.5,94.5 L 64.43,94.5 C 65.7,96.27 69.31,97.97 75.28,99.34 90.43,102.81 114.99,102.81 130.14,99.34 136.1,97.97 139.72,96.27 140.99,94.5 L 141.5,94.5 C 141.5,97.76 141.09,104.04 140.27,111.28 Z M 140.27,111.28" />
+    <path id="blackCoffee" stroke="rgb(0, 0, 0)" stroke-width="0.5" stroke-miterlimit="10" fill="rgb(0, 0, 0)" d="M 130.55,151.22 C 115.05,167.59 89.92,167.59 74.42,151.22 69.17,145.67 65.69,125.02 64,108.94 65.98,110.01 68.58,111.02 71.78,111.91 88.58,116.62 115.82,116.62 132.62,111.91 136.16,110.92 138.95,109.8 141,108.61 139.32,124.73 135.84,145.63 130.55,151.22 Z M 130.55,151.22" />
+    <ellipse id="froth" stroke="rgb(0, 0, 0)" stroke-width="0.5" fill="url(#gradient2-froth)" cx="102.25" cy="93.25" rx="31.75" ry="5.75" />
+    <path id="cup" stroke="rgb(0, 0, 0)" stroke-width="0.5" stroke-miterlimit="10" fill="rgb(255, 255, 255)" fill-opacity="0.19" d="M 149.03,97.23 C 154.7,93.14 162.65,93.65 167.75,98.75 173.42,104.41 173.42,113.59 167.75,119.25 162.09,124.92 152.91,124.92 147.25,119.25 147.03,119.03 146.82,118.81 146.62,118.58 144.34,133.94 140.71,149.76 135.73,154.73 117.38,173.09 87.62,173.09 69.27,154.73 60.09,145.56 55.5,99.53 55.5,87.5 L 56.62,87.5 C 58.15,89.64 62.51,91.7 69.69,93.35 87.95,97.55 117.55,97.55 135.81,93.35 142.99,91.7 147.35,89.64 148.88,87.5 L 149.5,87.5 C 149.5,89.73 149.34,93.12 149.03,97.23 Z M 157.06,99.54 C 154.87,99.65 152.73,100.55 151.07,102.24 147.53,105.87 147.53,111.74 151.07,115.37 154.62,118.99 160.38,118.99 163.93,115.37 167.47,111.74 167.47,105.87 163.93,102.24 162.03,100.31 159.52,99.41 157.04,99.54 L 157.06,99.54 Z M 157.06,99.54" />
+</svg>
