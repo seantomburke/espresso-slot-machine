@@ -1,5 +1,5 @@
 body{
-	background: #2Af url('../images/bg.jpg') no-repeat left top;
+	background: #2Af;
 	margin: 0px;
 	padding: 90px 0 0 0;
 }
@@ -25,6 +25,10 @@ body{
 	height: 600px;
 	width: 780px;
 	float: left;
+	border: 10px solid #999;
+	-webkit-border-radius: 100px;
+	   -moz-border-radius: 100px;
+	        border-radius: 100px;
 }
 
 #title{
@@ -32,8 +36,8 @@ body{
 	width: 660px;
 	font-family: verdana;
 	text-align: center;
-	border: inset 10px;
 	margin: 20px auto;
+	font-family: BankGothic-Medium, "Bank Gothic", sans-serif;
 }
 
 #spinner-view{
@@ -42,7 +46,9 @@ body{
 	width: 660px;
 	overflow: hidden;
 	height: 220px;
-	border: inset 10px;
+	-webkit-border-radius: 10px;
+	   -moz-border-radius: 10px;
+	        border-radius: 10px;
 }
 
 .roller{
@@ -58,6 +64,9 @@ body{
 	height: 200px;
 	background-color: #999;
 	margin-bottom: 10px;
+	-webkit-border-radius: 10px;
+	   -moz-border-radius: 10px;
+	        border-radius: 10px;
 }
 
 #winner{
@@ -127,10 +136,10 @@ body{
 #winner-bottom .winner-view-left{
 	width: 100px;
 	height:100px;
-	background-image: -webkit-linear-gradient(-45deg, #323332 50%, #545554 50%);
-	background-image: -moz-linear-gradient(-45deg, #323332 50%, #545554 50%);
-	background-image: -ms-linear-gradient(-45deg, #323332 50%, #545554 50%);
-	background-image: linear-gradient(135deg, #323332 50%, #545554 50%);
+	background-image: -webkit-linear-gradient(-45deg, #333 50%, #555 50%);
+	background-image: -moz-linear-gradient(-45deg, #333 50%, #555 50%);
+	background-image: -ms-linear-gradient(-45deg, #333 50%, #555 50%);
+	background-image: linear-gradient(135deg, #333 50%, #555 50%);
 }
 
 #winner-bottom .winner-view-middle{
@@ -142,10 +151,10 @@ body{
 #winner-bottom .winner-view-right{
 	width: 100px;
 	height:100px;
-	background-image: -webkit-linear-gradient(225deg, #323332 50%, #545554 50%);
-	background-image: -moz-linear-gradient(225deg, #323332 50%, #545554 50%);
-	background-image: -ms-linear-gradient(225deg, #323332 50%, #545554 50%);
-	background-image: linear-gradient(-135deg, #323332 50%, #545554 50%);
+	background-image: -webkit-linear-gradient(225deg, #333 50%, #555 50%);
+	background-image: -moz-linear-gradient(225deg, #333 50%, #555 50%);
+	background-image: -ms-linear-gradient(225deg, #333 50%, #555 50%);
+	background-image: linear-gradient(-135deg, #333 50%, #555 50%);
 }
 
 #winner #winner-value{
@@ -161,7 +170,70 @@ body{
 
 #winner-image {
 width: 100%;
-	margin: 0px auto;}
+	margin: 0px auto;
+	}
+	
+	#cheatbox{
+		margin: 30px auto;
+		width: 400px;
+		height: 20px;
+		position: relative;
+	}
+	
+	.cheatButton
+	{
+	    position: relative;
+	    width: 118px;
+	    height: 28px;
+	    float: left;
+	    margin-right: 10px;
+	}
+	
+	.roundedRectangle2
+	{
+	    position: absolute;
+	    left: 0px;
+	    width: 116px;
+	    top: -5px;
+	    height: 19px;
+	    background: rgb(45, 146, 178);
+	    border: 1px solid rgb(45, 146, 178);
+	    -webkit-border-radius: 5px;
+	       -moz-border-radius: 5px;
+	            border-radius: 5px;
+	}
+	.roundedRectangle
+	{
+	    position: absolute;
+	    left: 0px;
+	    width: 115px;
+	    top: 0px;
+	    height: 13px;
+	    background: rgb(64, 209, 255);
+	    border: 1px solid rgb(179, 236, 255);
+	    -webkit-box-shadow: -0.25px 0.25px 5px 0 rgba(0, 0, 0, 0) inset;
+	       -moz-box-shadow: -0.25px 0.25px 5px 0 rgba(0, 0, 0, 0) inset;
+	            box-shadow: -0.25px 0.25px 5px 0 rgba(0, 0, 0, 0) inset;
+	    font-size: 12px;
+	    text-align: center;
+	    font-family: BankGothic-Medium, "Bank Gothic", sans-serif;
+	    color: rgb(31, 102, 125);
+	    padding: 3px 0;
+	    -webkit-border-radius: 5px;
+	       -moz-border-radius: 5px;
+	            border-radius: 5px;
+	    
+    	-webkit-transition: top 1s ease-in-out 0s;
+    	transition: top .1s ease-in-out 0s;
+	}
+	.roundedRectangle:hover{
+			top: -1px;
+			cursor: pointer;
+	}
+	.roundedRectangle:active{
+			top: -5px;
+	}
+	
 
 
 #lever-joint{
@@ -188,8 +260,9 @@ width: 100%;
 	position: relative;
 	top: 0px;
 	left: -90px;
-	border-radius: 100px;
 	-webkit-border-radius: 100px;
+	   -moz-border-radius: 100px;
+	        border-radius: 100px;
 }
 #ball-reflection{
 	background-color: #FFF;
@@ -199,7 +272,9 @@ width: 100%;
 	position: relative;
 	top: 20px;
 	left: 20px;
-	border-radius: 10px;
+	-webkit-border-radius: 10px;
+	   -moz-border-radius: 10px;
+	        border-radius: 10px;
 }
 
 #shaft{
@@ -301,8 +376,4 @@ animation-duration: .25s !important;
 		100% {
 			top: -630px;
 		}
-}
-
-.steam {
-	animation: roll 1s linear 0s infinite reverse;
 }

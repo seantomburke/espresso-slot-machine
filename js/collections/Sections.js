@@ -1,3 +1,4 @@
+"use strict";
 var app = app || {};
 
 app.Sections = Backbone.Collection.extend({

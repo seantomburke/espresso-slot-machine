@@ -9,7 +9,7 @@
 </div>
 <div id="machine">
 	<div id="box">
-				<div><h1 id="title">Sean's Magic Drink Machine</h1></div>
+			<div><h1 id="title">Sean's Magic Drink Machine</h1></div>
 	    	<div id="spinner-view">
 	    		<div id="roller1" class="roller roll1">
 		    		<div class="roller-section">
@@ -31,6 +31,29 @@
 	    		<div class="door door-left"></div>
 	    		<div class="door door-right"></div>
 	    	</div>
+	    	<div id="cheatbox">
+		    	<div class="cheatButton" data-value="coffee">
+			        <div class="roundedRectangle2">
+			        </div>
+			        <div class="roundedRectangle">
+			        Coffee
+			        </div>
+			    </div>
+			    <div class="cheatButton" data-value="tea">
+			        <div class="roundedRectangle2">
+			        </div>
+			        <div class="roundedRectangle">
+			        Tea
+			        </div>
+			    </div>
+			    <div class="cheatButton" data-value="espresso">
+			        <div class="roundedRectangle2">
+			        </div>
+			        <div class="roundedRectangle">
+			        espresso
+			        </div>
+			    </div>
+		    </div>
 	</div>
 	<div id="lever">
 		<div id="lever-joint"></div>
@@ -43,7 +66,7 @@
 <div id="table">
 </div>
 <script id="roller-section-template" type="text/template">
-<img><%= image %></img>
+<div><%= image %></div>
 <!--<span class="caption"><%= value %></span>-->
 </script>
 
@@ -200,5 +223,17 @@
 <script src="js/collections/Sections.js"></script>
 <script src="js/collections/Rollers.js"></script>
 <script src="js/thumbtack.js"></script>
+<script>
+//cheat script
+	$(".cheatButton").on("click", function(){
+		machine.cheatPull(app.Beverages.indexOf($(this).data("value")));
+		// machine.winnerView.model.set("value", undefined);
+		// _this = this
+		// cheat = function(){
+		// 	machine.winnerView.model.set("value", $(_this).data("value"));
+		// }
+		// setTimeout(cheat, 1100);
+	});
+</script>
 </body>
 </html>

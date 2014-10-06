@@ -1,3 +1,4 @@
+"use strict";
 var app = app || {};
 
 app.Roller = Backbone.Model.extend({
@@ -27,7 +28,7 @@ app.Roller = Backbone.Model.extend({
 		}
 	},
 	startRoll:function(){
-		console.log("triggered rolling started");
+		//console.log("triggered rolling started");
 		//console.log(this.get("rolling"));
 	},
 	stopRoll:function(){

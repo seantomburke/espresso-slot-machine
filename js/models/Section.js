@@ -1,3 +1,4 @@
+"use strict";
 var app = app || {};
 
 app.img = {
@@ -33,7 +34,7 @@ app.Section = Backbone.Model.extend({
 	},
 	initialize: function(){
 		this.on('change', function(){
-			console.log(this);
+			//console.log(this);
 		})
 	}
 })

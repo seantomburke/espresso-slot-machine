@@ -1,10 +1,11 @@
+"use strict";
 var app = app || {};
 
 app.SectionsView = Backbone.View.extend({
 	tagName: "div",
 	className: "sections",
 	initialize:function(){
-		console.log("SectionsView", this);
+		//console.log("SectionsView", this);
 	},
 	render: function(){
 		this.$el.html(' ');

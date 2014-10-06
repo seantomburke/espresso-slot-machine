@@ -1,4 +1,5 @@
-var app = app || {}
+"use strict";
+var app = app || {};
 
 app.Machine = Backbone.Model.extend({
 	defaults: {

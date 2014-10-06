@@ -1,4 +1,5 @@
-var app = app ||{};
+"use strict";
+var app = app || {};
 
 app.Winner = Backbone.Model.extend({
 	defaults:{

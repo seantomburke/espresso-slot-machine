@@ -1,10 +1,11 @@
+"use strict";
 var app = app || {};
 
 app.RollerView = Backbone.View.extend({
 	tagName: "div",
 	className: "roller",
 	intitialize:function(){
-		console.log("el", this.el);
+		//console.log("el", this.el);
 		this.model.on("change:rolling", this.startRoll, this);
 		this.mode.on("startRoll", this.startRoll, this);
 		//this.listenTo(app.MachineView, "roll:start", this.startRoll);
@@ -19,7 +20,7 @@ app.RollerView = Backbone.View.extend({
 		return this;
 	},
 	startRoll: function(){
-			console.log("Roller View","startRoll");
+			//console.log("Roller View","startRoll");
 			this.$el.addClass("roll");
 	},
 	stopRoll: function(timeout){

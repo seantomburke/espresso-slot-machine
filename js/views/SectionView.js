@@ -1,12 +1,10 @@
+"use strict";
 var app = app || {};
 
 app.SectionView = Backbone.View.extend({
 	tagName: "div",
 	className: "roller-section",
 	template: _.template($("#roller-section-template").html()),
-	initialize: function(){
-		console.log("SectionView", this);
-	},
 	render: function(){
 		var sectionTemplate = this.template(this.model.toJSON());
 		this.$el.html(sectionTemplate);
@@ -14,7 +12,7 @@ app.SectionView = Backbone.View.extend({
 	},
 	initialize: function(){
 		this.on('change', function(){
-			console.log(this);
+			//console.log(this);
 		})
 	}
 });

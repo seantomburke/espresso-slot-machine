@@ -1,3 +1,4 @@
+"use strict";
 var app = app || {};
 
 app.Roller = Backbone.Collection.extend({
@@ -8,10 +9,10 @@ app.Roller = Backbone.Collection.extend({
 		rolling: false,
 	},
 	initialize: function(){
-		console.log("initializing Roller.js");
+		//console.log("initializing Roller.js");
 		var _this = this;
 		this.on('change', function(){
-			console.log(_this.rollValue);
+			//console.log(_this.rollValue);
 		});
 	}
 })

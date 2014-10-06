@@ -1,3 +1,4 @@
+"use strict";
 var app = app || {};
 
 app.MachineView = Backbone.View.extend({
@@ -106,7 +107,7 @@ app.MachineView = Backbone.View.extend({
 			model: makerRoller
 		}));
 		this.rollers[0].on("change:rolling", function(){
-			console.log("maker rolling");
+			//console.log("maker rolling");
 		})
 
 		this.rollers.push(new app.RollerView({
@@ -147,13 +148,17 @@ app.MachineView = Backbone.View.extend({
     	"animationend": "unpullLever",
     	"webkitAnimationEnd": "unpullLever"
   	},
-	pullLever: function(){
+	pullLever: function(e, cheatIndex){
 		this.winnerView.model.set("value", undefined);
+		this.model.set('cheatIndex', cheatIndex);
 		for(var i in this.rollers){
 			this.rollers[i].model.set("rollValue", -1);
 			this.rollers[i].model.set("rollBeverage", undefined);
 		}
 		this.model.set('leverPulled', true);
+	},
+	cheatPull: function(cheatIndex){
+		this.pullLever(null, cheatIndex);
 	},
 	unpullLever: function(){
 		this.model.set('leverPulled', false);
@@ -183,7 +188,7 @@ app.MachineView = Backbone.View.extend({
 		$("#shaft").removeClass("shaft-shrink");
 	},
 	rollingHandler: function(){
-		console.log(this.model.get("rolling"));
+		//console.log(this.model.get("rolling"));
 		if(!this.model.get("rolling"))
 		{
 			this.model.set("rolling",true);
@@ -197,19 +202,14 @@ app.MachineView = Backbone.View.extend({
 		}
 	},
 	addRollingClass: function(){
-		console.log("starting rollers");
 		$(".roller").addClass("roll");
-		// this.stopAll(1000 + 1000*Math.random(), 1000)
-		// this.on("animationstop", function(){
-		// 	console.log("animation end");
-		// })
 	},
 	stopRollers: function(delay, interval, _this){
-		console.log("stopping rollers");
 		$(".roller").each(function(i,el){
 			var stop = function(){
 				var top = $(el).position().top;
-				var index = Math.round(top/210);
+				var cheatIndex = _this.model.get("cheatIndex");
+				var index = (typeof cheatIndex === 'undefined') ? Math.round(top/210): -cheatIndex;
 				var new_top = index*210;
 				_this.rollers[i].model.set("rollValue", Math.abs(index) % 3);
 				_this.rollers[i].model.set("rollBeverage", app.Beverages[Math.abs(index) % 3]);
@@ -224,13 +224,13 @@ app.MachineView = Backbone.View.extend({
 		});
 	},
 	getWinner: function(){
-		rollValues = _.map(this.rollers, function(roller){ return roller.model.get("rollBeverage")});
-		console.log(rollValues);
+		var rollValues = _.map(this.rollers, function(roller){ return roller.model.get("rollBeverage")});
+		//console.log(rollValues);
 
-		winner = _.reduce(rollValues, function(val1, val2){ return (val1==val2) ? val1:false; });
+		var winner = _.reduce(rollValues, function(val1, val2){ return (val1==val2) ? val1:false; });
 		if(winner)
 		{
-			console.log(winner);
+			//console.log(winner);
 			this.winnerView.model.set("value", winner);
 		}
 	}
