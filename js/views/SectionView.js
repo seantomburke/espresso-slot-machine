@@ -9,10 +9,5 @@ app.SectionView = Backbone.View.extend({
 		var sectionTemplate = this.template(this.model.toJSON());
 		this.$el.html(sectionTemplate);
 		return this;
-	},
-	initialize: function(){
-		this.on('change', function(){
-			//console.log(this);
-		})
 	}
 });

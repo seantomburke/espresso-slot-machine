@@ -31,10 +31,5 @@ app.Section = Backbone.Model.extend({
 		image: app.img.default,
 		position: 0,
 		roller: 'default'
-	},
-	initialize: function(){
-		this.on('change', function(){
-			//console.log(this);
-		})
 	}
 })

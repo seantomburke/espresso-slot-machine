@@ -9,10 +9,6 @@ app.MachineView = Backbone.View.extend({
 		this.stoppers = [];
 		this.render();
 		this.model.on('change:leverPulled', this.leverHandler, this);
-		//$("#lever").on("animationend", this.removeRollClass);
-		//$("#lever").on("webkitAnimationEnd",this.removeRollClass);
-		// this.$el.on("animationend", this.removeRollClass);
-		// this.$el.on("webkitAnimationEnd",this.removeRollClass);
 	},
 	render: function(){
 
@@ -76,7 +72,6 @@ app.MachineView = Backbone.View.extend({
 		var makerSections = new app.Sections([
 				coffeeMaker, teaMaker, espressoMaker
 			]);
-		//console.log("makerSections", makerSections);
 
 		var filterSections = new app.Sections([
 				coffeeFilter, teaFilter, espressoFilter
@@ -90,7 +85,7 @@ app.MachineView = Backbone.View.extend({
 			position: 1,
 			sections: makerSections
 		});
-		//console.log("makerRoller", makerRoller);
+
 		var filterRoller = new app.Roller({
 			id: "roller2",
 			position: 2,
@@ -106,9 +101,6 @@ app.MachineView = Backbone.View.extend({
 		this.rollers.push(new app.RollerView({
 			model: makerRoller
 		}));
-		this.rollers[0].on("change:rolling", function(){
-			//console.log("maker rolling");
-		})
 
 		this.rollers.push(new app.RollerView({
 			model: filterRoller
@@ -132,15 +124,6 @@ app.MachineView = Backbone.View.extend({
 
 		$("#winner").html(this.winnerView.render().el);
 
-		// $("#spinner-view").html(' ');
-		// this.rollers["maker"] = new app.SectionsView({id:"roller1", collection: makerSections});
-		// $("#spinner-view").append(this.rollers["maker"].render().el);
-
-		// this.rollers["filter"] = new app.SectionsView({id:"roller2", collection: filterSections});
-		// $("#spinner-view").append(this.rollers["filter"].render().el);
-
-		// this.rollers["beans"] = new app.SectionsView({id:"roller3", collection: beansSections});
-		// $("#spinner-view").append(this.rollers["beans"].render().el);
 		return this
 	},
 	events: {
@@ -164,7 +147,6 @@ app.MachineView = Backbone.View.extend({
 		this.model.set('leverPulled', false);
 	},
 	stopAll: function(delay, interval){
-		//console.log("stopping");
 		this.rollers.collection.each(function(roller){
 			roller.stopRoll(delay + interval * roller.collection.position);
 		});
@@ -188,7 +170,6 @@ app.MachineView = Backbone.View.extend({
 		$("#shaft").removeClass("shaft-shrink");
 	},
 	rollingHandler: function(){
-		//console.log(this.model.get("rolling"));
 		if(!this.model.get("rolling"))
 		{
 			this.model.set("rolling",true);
@@ -225,12 +206,9 @@ app.MachineView = Backbone.View.extend({
 	},
 	getWinner: function(){
 		var rollValues = _.map(this.rollers, function(roller){ return roller.model.get("rollBeverage")});
-		//console.log(rollValues);
-
 		var winner = _.reduce(rollValues, function(val1, val2){ return (val1==val2) ? val1:false; });
 		if(winner)
 		{
-			//console.log(winner);
 			this.winnerView.model.set("value", winner);
 		}
 	}

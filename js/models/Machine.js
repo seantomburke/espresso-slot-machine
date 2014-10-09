@@ -7,10 +7,6 @@ app.Machine = Backbone.Model.extend({
 		leverPulled: false
 	},
 	initialize: function(){
-
-		this.on("roller:stopped", this.setStopped);
-
-		//this.collection = new app.Rollers;
 		this.rolling = false;
 		this.rollers = {};
 	}

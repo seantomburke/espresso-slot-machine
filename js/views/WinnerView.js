@@ -22,12 +22,10 @@ app.WinnerView = Backbone.View.extend({
 		}
 		else
 		{
-			//console.log(app.img[value].cup);
 			this.model.set("image", app.img[value].cup);
 			var image = this.model.get("image");
 			$("#winner-value span").html(value);
 			$("#winner-image").html(image);
-			//console.log(image);
 			$(".door").addClass("open");
 		}
 	}

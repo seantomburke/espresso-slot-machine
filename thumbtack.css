@@ -173,68 +173,66 @@ width: 100%;
 	margin: 0px auto;
 	}
 	
-	#cheatbox{
-		margin: 30px auto;
-		width: 400px;
-		height: 20px;
-		position: relative;
-	}
-	
-	.cheatButton
-	{
-	    position: relative;
-	    width: 118px;
-	    height: 28px;
-	    float: left;
-	    margin-right: 10px;
-	}
-	
-	.roundedRectangle2
-	{
-	    position: absolute;
-	    left: 0px;
-	    width: 116px;
-	    top: -5px;
-	    height: 19px;
-	    background: rgb(45, 146, 178);
-	    border: 1px solid rgb(45, 146, 178);
-	    -webkit-border-radius: 5px;
-	       -moz-border-radius: 5px;
-	            border-radius: 5px;
-	}
-	.roundedRectangle
-	{
-	    position: absolute;
-	    left: 0px;
-	    width: 115px;
-	    top: 0px;
-	    height: 13px;
-	    background: rgb(64, 209, 255);
-	    border: 1px solid rgb(179, 236, 255);
-	    -webkit-box-shadow: -0.25px 0.25px 5px 0 rgba(0, 0, 0, 0) inset;
-	       -moz-box-shadow: -0.25px 0.25px 5px 0 rgba(0, 0, 0, 0) inset;
-	            box-shadow: -0.25px 0.25px 5px 0 rgba(0, 0, 0, 0) inset;
-	    font-size: 12px;
-	    text-align: center;
-	    font-family: BankGothic-Medium, "Bank Gothic", sans-serif;
-	    color: rgb(31, 102, 125);
-	    padding: 3px 0;
-	    -webkit-border-radius: 5px;
-	       -moz-border-radius: 5px;
-	            border-radius: 5px;
-	    
-    	-webkit-transition: top 1s ease-in-out 0s;
-    	transition: top .1s ease-in-out 0s;
-	}
-	.roundedRectangle:hover{
-			top: -1px;
-			cursor: pointer;
-	}
-	.roundedRectangle:active{
-			top: -5px;
-	}
-	
+#cheatbox{
+	margin: 30px auto;
+	width: 400px;
+	height: 20px;
+	position: relative;
+}
 
+.cheatButton
+{
+    position: relative;
+    width: 118px;
+    height: 28px;
+    float: left;
+    margin-right: 10px;
+}
+
+.roundedRectangle2
+{
+    position: absolute;
+    left: 0px;
+    width: 116px;
+    top: -5px;
+    height: 19px;
+    background: rgb(45, 146, 178);
+    border: 1px solid rgb(45, 146, 178);
+    -webkit-border-radius: 5px;
+       -moz-border-radius: 5px;
+            border-radius: 5px;
+}
+.roundedRectangle
+{
+    position: absolute;
+    left: 0px;
+    width: 115px;
+    top: 0px;
+    height: 13px;
+    background: rgb(64, 209, 255);
+    border: 1px solid rgb(179, 236, 255);
+    -webkit-box-shadow: -0.25px 0.25px 5px 0 rgba(0, 0, 0, 0) inset;
+       -moz-box-shadow: -0.25px 0.25px 5px 0 rgba(0, 0, 0, 0) inset;
+            box-shadow: -0.25px 0.25px 5px 0 rgba(0, 0, 0, 0) inset;
+    font-size: 12px;
+    text-align: center;
+    font-family: BankGothic-Medium, "Bank Gothic", sans-serif;
+    color: rgb(31, 102, 125);
+    padding: 3px 0;
+    -webkit-border-radius: 5px;
+       -moz-border-radius: 5px;
+            border-radius: 5px;
+    
+	-webkit-transition: top 1s ease-in-out 0s;
+	transition: top .1s ease-in-out 0s;
+}
+.roundedRectangle:hover{
+		top: -1px;
+		cursor: pointer;
+}
+.roundedRectangle:active{
+		top: -5px;
+}
 
 #lever-joint{
 	width: 100px;
@@ -333,7 +331,7 @@ width: 100%;
     }
     50% {
     	height: 20px;
-    	top: 340px;
+    	top: 320px;
     }
     100% {
     	height: 280px;
